@@ -15,18 +15,21 @@ class Site extends Crud
 
     public function cadastro()
     {
-        require_once __DIR__ . '/../views/cadastro.php';
-        $cadastro = $this->create();            
+        // Executando a query create
+        $cadastro = $this->create();
+        require_once __DIR__ . '/../views/cadastro.php';             
     }
 
     public function  consulta()
     {   
+        // Executando a query read
         $consulta = $this->read();
         require_once __DIR__ . '/../views/consulta.php';
     }
 
     public function  editar()
     {   
+        // Executando a query do editForm
         $editarForm = $this->editForm();
         require_once __DIR__ . '/../views/editar.php';
     }
@@ -49,8 +52,9 @@ class Site extends Crud
 
     public function  deletar()
     {   
-        // Deletar
+        // Executando a query Deletar
         $delete = $this->delete();
+        
         // Redirecionando 
         header('Location:?router=Site/consulta/');
     }

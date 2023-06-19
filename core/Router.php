@@ -18,14 +18,10 @@ class Router
     {
         $router = $this->url();
 
-        // echo "Carregando a classe router";
-        $router = $this->url();
-
         // Verificando se a classe site existe
-
         if (is_file('./app/controllers/' . ucfirst($router[0]) . '.php')) :
             $this->controller = $router[0]; // O nome da classe está na posição zero
-            unset($router[0]); // É nescessario limpar a chave zero (indice) porque vamos trabalhar com os metodos
+            unset($router[0]); // É nescessario limpar a chave zero (indice) vamos trabalhar com os metodos
         endif;
 
         // Instanciando a classe 
@@ -45,7 +41,7 @@ class Router
     // Criando uma função para pegar os dados passados pela url do navegador
     private function url()
     {
-        // Passando explode, sempre que encontrar uma barra ele quebra
+        // Passando explode, sempre que encontrar uma barra / ele quebra
         // 'router' é o nome da vareavel que foi definida no htaccess
         $parse_url = explode("/", filter_input(INPUT_GET, 'router', FILTER_SANITIZE_URL));
         return $parse_url;

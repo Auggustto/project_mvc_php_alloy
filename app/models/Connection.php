@@ -2,11 +2,9 @@
 
 namespace app\models;
 
-// Criando uma classe abstract para que ela não sejá instanciada em lugal algum por motivos de segurança
+// Criando uma classe abstract para que ela não sejá instanciada em lugar algum por motivos de segurança
 abstract class Connection
 {
-    // 
-    // private $dbname = 'mysql:host=localhost;dbname=projetomvc';
     private $dbname = 'mysql:host=localhost;dbname=projetomvc_alloy';
     private $user = 'root';
     private $pass = '';

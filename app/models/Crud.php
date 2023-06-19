@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-// Para puxar a conexão com db precisamos do extends Connection
+// Para usar a conexão com db precisamos do extends Connection
 class Crud extends Connection
 {
     // Criando os metodos do CRUD
@@ -15,17 +15,20 @@ class Crud extends Connection
         $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
+        // Verifica se o email já está cadastrado
         $stmt = $conn->prepare("SELECT * FROM tb_person WHERE email = :email");
         $stmt->bindParam(':email', $email);
         $stmt->execute();
 
-        // Verifica se o email já está cadastrado
         if ($stmt->rowCount() > 0) 
         {
+            // Inserindo um alert na tela caso já esteja cadastrado
             echo '<script>alert("O email já está cadastrado!");</script>';
         } 
         else {
-            if ($nome and $email != null) {
+            // Validando novamente se os campos estão vazios 
+            if ($nome and $email != null) 
+            {
 
                 // Inserindo os dados da variável no banco de dados
                 $sql = "INSERT INTO tb_person VALUES (default, :nome, :email)";
@@ -38,37 +41,6 @@ class Crud extends Connection
                 $nome = "";
                 $email = "";
             }
-        }
-
-
-        // if ($nome and $email != null) {
-
-        //     // Inserindo os dados da variável no banco de dados
-        //     $sql = "INSERT INTO tb_person VALUES (default, :nome, :email)";
-        //     $stmt = $conn->prepare($sql);
-        //     $stmt->bindParam(':nome', $nome);
-        //     $stmt->bindParam(':email', $email);
-        //     $stmt->execute();
-        //     return $stmt;
-
-        //     $nome = "";
-        //     $email = "";
-        // }
-    }
-
-    public function verificandoEmail()
-    {
-        $conn = $this->connect();
-        $sql_email = 'SELECT * FROM tb_person WHERE email = :email';
-
-        $stmt = $conn->prepare($sql_email);
-        $stmt->bindParam(':email', $email);
-
-        // Verifica se o email já está cadastrado
-        if ($stmt->rowCount() > 0) {
-        } else {
-            $stmt->execute();
-            return $stmt;
         }
     }
 
