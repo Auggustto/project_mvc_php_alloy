@@ -1,35 +1,25 @@
-<div class="row container">
-    <div class="col s12">
-        <h3 class="light">Edição de registros.</h3>
-        <!-- Mostrando o valor da vareavel foto que está no controller -->
-    </div>
-    <div class="col s12">
-        <form action="?router=Site/alterar/" method="Post">
-            <!-- Foreach vai remover os valores duplicados -->
-            <?php foreach ($editarForm as $registro) : ?>
+<div class="container-sm">
 
-                <!-- Pegando o valor de ID de forma oculta -->
-                <input type="hidden" name="id" value="<?php echo $registro["id"];?>">
+    <h3 class="light">Edit of arquives.</h3>
+    <!-- Mostrando o valor da vareavel foto que está no controller -->
 
-                <div class="input-field col s12 m6">
+    <form action="?router=Site/alterar/" method="Post">
+        <!-- Foreach vai remover os valores duplicados -->
+        <?php foreach ($editarForm as $registro) : ?>
 
-                    <input placeholder="Digite seu nome" id="nome" name="nome" type="text" class="validate" value="<?php
-                    echo $registro['nome']?>" required>
+            <!-- Pegando o valor de ID de forma oculta -->
+            <input type="hidden" name="id" value="<?php echo $registro["id"]; ?>">
 
-                    <label for="nome">Digite seu nome</label>
+                <!-- Criando os botões e chamando os metodos -->
+                <input name="nome" type="text" class="form-control" placeholder="Input you Name" aria-label="nome" value="<?php echo $registro['nome'] ?>" required>
+                <input name="email" type="text" class="form-control" placeholder="Input you E-mail" aria-label="nome" value="<?php echo $registro['email'] ?>" required>
+            
+                <div class="btn-group">
+                    <input type="submit" value="Salvar alterações" class="btn btn-success">
+                    <input type="reset" value="limpar" class="btn btn-danger">
                 </div>
 
-                <div class="input-field col s12 m6">
-                <input placeholder="Digite seu nome" id="email" name="email" type="text" class="validate" value="<?php
-                    echo $registro['email']?>" required>
-                    <label for="email">Digite seu e-mail</label>
-
-                    <div class="input-field col s12">
-                        <input type="submit" value="Salvar alterações" class="btn-small">
-                        <input type="reset" value="limpar" class="btn-small red">
-                    </div>
-
-                <?php endforeach; ?>
-        </form>
-    </div>
+            <?php endforeach; ?>
+    </form>
+</div>
 </div>

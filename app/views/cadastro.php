@@ -1,7 +1,6 @@
 <div class="container-sm">
-    <div class="col s12">
-        <h3 class="light">Register Users.</h3>
-    </div>
+
+    <h3 class="light">Register Users.</h3>
 
     <form action="?router=Site/cadastro/" method="post">
         <div class="row">
