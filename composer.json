@@ -1,6 +1,6 @@
 {
-    "name": "projeto/cursomvc",
-    "description": "Curso de MVC com composer e  PHP",
+    "name": "project/projectmvcalloy",
+    "description": "Project MVC/PHP",
     "license": "Proprietary",
     "autoload": {
         "psr-4": {
@@ -8,12 +8,12 @@
             "core\\":"core"
         },
         "files":[
-            "config/config_b.php"
+            "config/config.php"
         ]
     },
     "authors": [
         {
-            "name": "Leonardo"
+            "name": "Leonardo Augusto"
         }
     ],
     "minimum-stability": "stable",

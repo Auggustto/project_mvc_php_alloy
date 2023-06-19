@@ -13,13 +13,6 @@ class Site extends Crud
 
     }
 
-    // public function galeria($foto)
-    // {
-    //     $photo = $foto;
-    //     // Importando a pagina de galeria
-    //     require_once __DIR__. '/../views/galeria.php';
-    // }
-
     public function cadastro()
     {
         require_once __DIR__ . '/../views/cadastro.php';
