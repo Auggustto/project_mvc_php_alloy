@@ -1,4 +1,4 @@
-<div class="row container">
+<div class="container-sm">
     <div class="col s12">
         <h3 class="light">Deseja realmente excluir esse registro ?</h3>
 
