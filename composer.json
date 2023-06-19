@@ -8,7 +8,7 @@
             "core\\":"core"
         },
         "files":[
-            "config/config.php"
+            "config/config_b.php"
         ]
     },
     "authors": [

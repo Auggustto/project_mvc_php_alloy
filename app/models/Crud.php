@@ -15,22 +15,38 @@ class Crud extends Connection
         $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
-        if($nome and $email != null){
-            
-        // Inserindo os dados da variável no banco de dados
-        $sql = "INSERT INTO tb_person VALUES (default, :nome, :email)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':nome', $nome);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
-        return $stmt;
-        
-        $nome = "";
-        $email = "";
+        if ($nome and $email != null) {
 
+            // Inserindo os dados da variável no banco de dados
+            $sql = "INSERT INTO tb_person VALUES (default, :nome, :email)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':nome', $nome);
+            $stmt->bindParam(':email', $email);
+            $stmt->execute();
+            return $stmt;
+
+            $nome = "";
+            $email = "";
         }
     }
 
+    public function verificandoEmail()
+    {
+        $conn = $this->connect();
+        $sql = 'SELECT * FROM tb_person WHERE email = :email';
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':email', $email);
+
+        // Verifica se o email já está cadastrado
+        if ($stmt->rowCount() > 0) {
+            
+        } else {
+            $stmt->execute();
+            return $stmt;
+        }
+    }
+    
     public function read()
     {
         $conn = $this->connect();
@@ -55,7 +71,7 @@ class Crud extends Connection
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':id', $id);
-        
+
         $stmt->execute();
         return $stmt;
     }

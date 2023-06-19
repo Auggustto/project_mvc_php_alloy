@@ -7,7 +7,7 @@ abstract class Connection
 {
     // 
     // private $dbname = 'mysql:host=localhost;dbname=projetomvc';
-    private $dbname = 'mysql:host=localhost;dbname=projetomvc';
+    private $dbname = 'mysql:host=localhost;dbname=projetomvc_alloy';
     private $user = 'root';
     private $pass = '';
 

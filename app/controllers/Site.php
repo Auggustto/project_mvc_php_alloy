@@ -23,8 +23,7 @@ class Site extends Crud
     public function cadastro()
     {
         require_once __DIR__ . '/../views/cadastro.php';
-        $cadastro = $this->create();
-            
+        $cadastro = $this->create();            
     }
 
     public function  consulta()
