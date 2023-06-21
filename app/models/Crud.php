@@ -37,9 +37,6 @@ class Crud extends Connection
                 $stmt->bindParam(':email', $email);
                 $stmt->execute();
                 return $stmt;
-
-                $nome = "";
-                $email = "";
             }
         }
     }
